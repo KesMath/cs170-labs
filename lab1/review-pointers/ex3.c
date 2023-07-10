@@ -13,8 +13,17 @@
 // arrays.
 int
 array_sum(int *arr, int n)
-{
-	// TODO: Your code here.
-	assert(0);
-	return -1;
+{	
+	int sum = 0;
+	
+	for(int i = 0; i < n; i++){
+		int val = 0;
+		sum += arr[i];
+		
+		// ANOTHER WAY - ALBEIT, LESS EFFICIENT!
+		//int* addy = &arr[i]; // extract address of first integer in array and store it inside of addy pointer... the compiler knows to proceed or consume 4 bytes since integers are 32 bits
+		//sum += *addy; // deference addy to get value stored there and accumulate it to sum var
+	}
+	
+	return sum;
 }

@@ -8,7 +8,8 @@
 // You may use a temporary variable or do an XOR swap.
 
 // DEFINITION //
-// DEREFERENCE: goes to an address to get the value stored there
+// DEREFERENCE: goes to an address to get the value stored there (uses *)
+// ADDRESS EXTRACTOR: The & operator can be used to get the address of some variable, as with (&n)
 void
 swap(int *p1, int *p2)
 {
