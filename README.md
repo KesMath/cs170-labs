@@ -1,6 +1,6 @@
-## :computer: Operating Systems Labs (Self-Taught) :computer:
+## :computer: Operating Systems Labs :computer:
 
-Labs can be compiled and executed on a virtual x86-64 bit Linux machine through (Docker)[https://cs61.seas.harvard.edu/site/2022/SetupDocker/#gsc.tab=0].
+Labs can be compiled and executed on a virtual x86-64 bit Linux machine through [Docker Img](https://cs61.seas.harvard.edu/site/2022/SetupDocker/#gsc.tab=0).
 
 ```
 cd docker
