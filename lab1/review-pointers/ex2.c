@@ -6,12 +6,17 @@
 // should have the value once pointed to by p2, and vice-versa.
 //
 // You may use a temporary variable or do an XOR swap.
+
+// DEFINITION //
+// DEREFERENCE: goes to an address to get the value stored there
 void
 swap(int *p1, int *p2)
 {
 	assert(p1 != NULL);
 	assert(p2 != NULL);
 
-	// TODO: Your code here.
-	assert(0);
+	int tmp = 0;
+	tmp = *p1; // dereference p1 and store value in tmp
+	*p1 = *p2; // dereference p2 and overides value stored in p1. Now p1 = *p2
+	*p2 = tmp; // assigns tmp to value stored or referenced by p2. Now p2 = *p1
 }
