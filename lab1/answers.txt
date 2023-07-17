@@ -16,3 +16,12 @@ Responses to exercises (if any) that need to go into answers.txt:
 
 
 Anything else you'd like us to know:
+
+Exercise 5.  Say you replaced run(current) in the INT_SYS_GETPID clause with schedule().
+The process that called sys_getpid() will eventually run again, picking up its execution as if sys_getpid() had returned directly.
+When it does run, will the sys_getpid() call have returned the correct value? Why or why not?
+
+The correct values will be returned. Given the fact that each process has a list of registers to
+maintain it's state, and assuming the return-from-system call state persists in the
+corresponding return register (being %eax), the scheduler can allow the process to context switch freely between other processes
+and return the correct values whenever that process is question is about to be re-runned.

@@ -225,6 +225,10 @@ do_fork(process_t *parent)
 	// YOUR CODE HERE!
 	// First, find an empty process descriptor.  If there is no empty
 	//   process descriptor, return -1.  Remember not to use proc_array[0].
+	for(int i = 1; i < NPROCS; i++){
+		if (proc_array[i].p_state != P_EMPTY){
+			break;
+		}
 	// Then, initialize that process descriptor as a running process
 	//   by copying the parent process's registers and stack into the
 	//   child.  Copying the registers is simple: they are stored in the
@@ -239,6 +243,27 @@ do_fork(process_t *parent)
 	//                What should sys_fork() return to the child process?)
 	// You need to set one other process descriptor field as well.
 	// Finally, return the child's process ID to the parent.
+
+		else{
+			// get a handle to this empty process and declare this to be child
+			process_t *child = &proc_array[i];
+
+			// copy registers from parent process to child process!
+			memcpy(&child->p_registers, &parent->p_registers, sizeof(child->p_registers));
+
+			// Register Exceptions
+			// setting return register (%eax) of child to 0 per instructions of fork()
+			child->p_registers.reg_eax = 0;
+
+			// TODO: copy stack
+
+			// setting child to runnable for scheduler
+			child->p_state = P_RUNNABLE;
+
+			// return the child's process ID
+			return child->p_pid;
+		}
+	}
 
 	return -1;
 }
